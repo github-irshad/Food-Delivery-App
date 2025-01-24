@@ -4,7 +4,12 @@ import "./PlaceOrder.css";
 const PlaceOrder = () => {
   const { getTotalCartAmount } = useContext(StoreContext);
   return (
-    <form action="" className="place-order">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+      className="place-order"
+    >
       <div className="place-order-left">
         <p className="title">Delivery Information</p>
         <div className="multi-fields">
