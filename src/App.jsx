@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import { assets } from "./assets/assets";
 import { Routes, Route } from "react-router-dom";
@@ -10,6 +10,14 @@ import LoginPopup from "./components/LoginPopUp/LoginPopup";
 
 const App = () => {
   const[showLogin,setShowLogin] = useState(false);
+  useEffect(()=>{
+    if(showLogin){
+      document.body.style.overflow = 'hidden';
+    }
+    else{
+      document.body.style.overflow ='auto';
+    }
+  },[showLogin])
   return (
     <>
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
